@@ -1,0 +1,71 @@
+{
+  "assault_a": {
+    "id": "assault_a",
+    "name": "Assault Rifle A",
+    "category": "Assault",
+    "rpm": 750,
+    "damage": 30,
+    "range": 50,
+    "recoilPerShot": 0.9,
+    "recoilRecoveryTime": 0.15,
+    "recoilRecoveryRate": 6.0,
+    "magazine": 30,
+    "reserveAmmo": 90,
+    "reloadTime": 2.2,
+    "adsZoom": 0.67,
+    "adsSensitivityMult": 0.6,
+    "hipFireSpread": 0.012,
+    "adsSpread": 0.003,
+    "hitMultipliers": {
+      "head": 2.5,
+      "torso": 1.0,
+      "limb": 0.75
+    }
+  },
+  "smg_b": {
+    "id": "smg_b",
+    "name": "SMG B",
+    "category": "SMG",
+    "rpm": 950,
+    "damage": 22,
+    "range": 30,
+    "recoilPerShot": 0.6,
+    "recoilRecoveryTime": 0.1,
+    "recoilRecoveryRate": 7.5,
+    "magazine": 40,
+    "reserveAmmo": 120,
+    "reloadTime": 1.8,
+    "adsZoom": 0.78,
+    "adsSensitivityMult": 0.75,
+    "hipFireSpread": 0.018,
+    "adsSpread": 0.005,
+    "hitMultipliers": {
+      "head": 2.5,
+      "torso": 1.0,
+      "limb": 0.75
+    }
+  },
+  "sniper_b": {
+    "id": "sniper_b",
+    "name": "Sniper B",
+    "category": "Sniper",
+    "rpm": 50,
+    "damage": 250,
+    "range": 200,
+    "recoilPerShot": 3.5,
+    "recoilRecoveryTime": 0.6,
+    "recoilRecoveryRate": 5.0,
+    "magazine": 5,
+    "reserveAmmo": 20,
+    "reloadTime": 3.5,
+    "adsZoom": 0.30,
+    "adsSensitivityMult": 0.25,
+    "hipFireSpread": 0.05,
+    "adsSpread": 0.001,
+    "hitMultipliers": {
+      "head": 3.0,
+      "torso": 1.0,
+      "limb": 0.8
+    }
+  }
+}

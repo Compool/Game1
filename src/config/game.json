@@ -1,0 +1,31 @@
+{
+  "player": {
+    "hp": 100,
+    "walkSpeed": 5.0,
+    "sprintSpeed": 9.0,
+    "crouchSpeed": 2.5,
+    "jumpForce": 0,
+    "height": 1.8,
+    "eyeHeight": 1.65,
+    "radius": 0.4,
+    "gravity": 18,
+    "defaultWeapon": "assault_a"
+  },
+  "camera": {
+    "fovDefault": 75,
+    "fovADS": 50,
+    "fovLerpSpeed": 10,
+    "mouseSensitivity": 0.0018,
+    "maxPitch": 88
+  },
+  "match": {
+    "spawnSafeTime": 3.0,
+    "waveInterval": 15.0
+  },
+  "graphics": {
+    "shadowsEnabled": true,
+    "fogEnabled": true,
+    "fogNear": 30,
+    "fogFar": 80
+  }
+}
