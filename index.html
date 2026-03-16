@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShootingGame — Phase 1</title>
+  <meta name="description" content="COD-style tactical shooter prototype with FSM AI and ADS aiming system." />
+  <link rel="stylesheet" href="/src/ui/styles.css" />
+</head>
+<body>
+  <!-- Three.js 렌더 캔버스 -->
+  <canvas id="game-canvas"></canvas>
+
+  <!-- UI 레이어 -->
+  <div id="ui-root">
+    <!-- 로딩 화면 -->
+    <div id="screen-loading" class="screen">
+      <div class="loading-content">
+        <h1 class="game-title">SHOOTING GAME</h1>
+        <p class="loading-subtitle">Phase 1 Prototype</p>
+        <div class="progress-bar-track">
+          <div id="loading-bar" class="progress-bar-fill"></div>
+        </div>
+        <p id="loading-tip" class="loading-tip">Initializing engine…</p>
+      </div>
+    </div>
+
+    <!-- 로비 화면 -->
+    <div id="screen-lobby" class="screen hidden">
+      <div class="lobby-bg"></div>
+      <div class="lobby-panel">
+        <h1 class="game-title">SHOOTING GAME</h1>
+        <div class="lobby-form">
+          <label class="form-label">CALLSIGN
+            <input id="lobby-callsign" type="text" class="form-input" placeholder="Enter callsign" maxlength="16" value="OPERATOR" />
+          </label>
+          <label class="form-label">MODE
+            <select id="lobby-mode" class="form-select">
+              <option value="solo">Solo Skirmish</option>
+              <option value="wave">Wave Survival</option>
+            </select>
+          </label>
+          <label class="form-label">ENEMY COUNT
+            <input id="lobby-ai-count" type="range" min="1" max="8" value="4" class="form-range" />
+            <span id="lobby-ai-count-val">4</span>
+          </label>
+          <label class="form-label">DIFFICULTY
+            <select id="lobby-difficulty" class="form-select">
+              <option value="easy">Easy</option>
+              <option value="normal" selected>Normal</option>
+              <option value="hard">Hard</option>
+            </select>
+          </label>
+        </div>
+        <div class="lobby-controls-hint">
+          <span>WASD Move</span><span>Mouse Aim</span><span>LMB Fire</span><span>RMB ADS</span><span>R Reload</span><span>Shift Sprint</span>
+        </div>
+        <button id="btn-start" class="btn-primary">DEPLOY</button>
+      </div>
+    </div>
+
+    <!-- HUD (게임 중) -->
+    <div id="screen-hud" class="screen hidden">
+      <!-- 조준점 -->
+      <div id="crosshair">
+        <div class="ch-line ch-top"></div>
+        <div class="ch-line ch-bottom"></div>
+        <div class="ch-line ch-left"></div>
+        <div class="ch-line ch-right"></div>
+        <div class="ch-dot"></div>
+      </div>
+
+      <!-- HP바 -->
+      <div id="hud-health">
+        <div class="hud-label">HP</div>
+        <div class="hp-bar-track">
+          <div id="hp-bar-fill" class="hp-bar-fill"></div>
+        </div>
+        <span id="hp-value">100</span>
+      </div>
+
+      <!-- 탄약 -->
+      <div id="hud-ammo">
+        <span id="ammo-current">30</span><span class="ammo-sep">/</span><span id="ammo-reserve">30</span>
+        <div id="reload-indicator" class="hidden">RELOADING…</div>
+      </div>
+
+      <!-- 스코어 -->
+      <div id="hud-score">
+        <span>KILLS: </span><span id="score-kills">0</span>
+        <span> | ALIVE: </span><span id="score-alive">4</span>
+      </div>
+
+      <!-- 킬 피드 -->
+      <div id="kill-feed"></div>
+
+      <!-- 포인터락 안내 -->
+      <div id="pointer-lock-overlay" class="hidden">
+        <div class="plo-content">
+          <p>Click to capture mouse</p>
+          <p class="plo-sub">ESC to return to lobby</p>
+        </div>
+      </div>
+
+      <!-- ADS 비네트 -->
+      <div id="ads-vignette" class="hidden"></div>
+    </div>
+
+    <!-- 포스트 매치 화면 -->
+    <div id="screen-postmatch" class="screen hidden">
+      <div class="postmatch-panel">
+        <h2 id="postmatch-title">MISSION COMPLETE</h2>
+        <div class="postmatch-stats">
+          <div class="stat-item"><span class="stat-label">KILLS</span><span id="pm-kills" class="stat-value">0</span></div>
+          <div class="stat-item"><span class="stat-label">DEATHS</span><span id="pm-deaths" class="stat-value">0</span></div>
+          <div class="stat-item"><span class="stat-label">ACCURACY</span><span id="pm-accuracy" class="stat-value">0%</span></div>
+        </div>
+        <button id="btn-lobby" class="btn-primary">RETURN TO LOBBY</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/client/GameLoop.js"></script>
+</body>
+</html>
